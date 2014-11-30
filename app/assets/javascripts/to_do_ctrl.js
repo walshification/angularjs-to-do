@@ -4,7 +4,7 @@
   angular.module("app").controller("toDoCtrl", function($scope) {
 
     $scope.tasks = [];
-    $scope.incompletes = [];
+    $scope.incomplete = 0;
 
     $scope.addTask = function(task) {
       var createTask = {
@@ -26,12 +26,21 @@
       }
     }
 
-    $scope.checkIncomplete = function(tasks) {
-      if (tasks.completed) {
-        $scope.incompletes.push(1); 
-      } else {
-        $scope.incompletes.pop();
+    $scope.numberOfIncompleteTasks = function() {
+      var count = 0;
+      for(var i = 0; i < $scope.tasks.length; i++) {
+        if(!$scope.tasks[i].completed) {
+          count++;
+        }
       }
+      return count;
+      // for (var i = 0; i < incomplete.length; i++) {
+      //   if (tasks[i].completed) {
+      //     $scope.incomplete++;
+      //   } else {
+      //     $scope.incomplete--;
+      //   }
+      // }
     }
 
     window.scope = $scope;

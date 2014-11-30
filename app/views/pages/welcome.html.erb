@@ -13,7 +13,7 @@
       <ul>
         <li ng-repeat="task in tasks track by $index" ng-class="{completed: task.completed}" ng-click="toggleCompleted(task)">{{ task.task }}</li>
       </ul>
-      <p ="checkIncomplete(tasks)">Incomplete Tasks: {{ incompletes.length }}</p>
+      <p>Incomplete Tasks: {{ numberOfIncompleteTasks() }}</p>
     </div>
 
   </div>
