@@ -19,11 +19,7 @@
     };
 
     $scope.toggleCompleted = function(task) {
-      if(task.completed) {
-        task.completed = false;
-      } else {
-        task.completed = true;
-      }
+      task.completed = !task.completed;
     }
 
     $scope.numberOfIncompleteTasks = function() {
@@ -34,13 +30,14 @@
         }
       }
       return count;
-      // for (var i = 0; i < incomplete.length; i++) {
-      //   if (tasks[i].completed) {
-      //     $scope.incomplete++;
-      //   } else {
-      //     $scope.incomplete--;
-      //   }
-      // }
+    }
+
+    $scope.deleteCompletedTasks = function() {
+      for(var i = 0; i < $scope.tasks.length; i++) {
+        if($scope.tasks[i].completed) {
+          $scope.tasks.splice(i, 1);
+        }
+      }
     }
 
     window.scope = $scope;
